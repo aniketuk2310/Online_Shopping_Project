@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+@*<form asp-action="Index" method="post">
+    <label>
+        Select Category
+    </label>
+    <input type="number" value="id" name="id" class="form-control"/><br />
+    <select class="form-select" value="id" name="id">
+        <option selected>Category</option>
+        <option value="cloths">cloths</option>
+        <option value="electronics">electronics</option>
+    </select>
+    <input type="submit" value="Sort" name="ProductId" class="btn btn-primary">
+
+</form>
+<br />
+<hr />*@
+
+<a type="submit" asp-action="SortByCategory" class="btn btn-primary">Sort By Category</a>
+<br />
+<h4>@ViewBag.message</h4>
+
+@if (Model != null)
+{
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-sm-3">
+                <div class="card bg-light mb-3 col-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top" src="~/images/@product.Image" alt="Card image cap" style="height:200px;width:200px">
+                        <h5 class="card-title">@product.PName</h5>
+                        <p class="card-text">@product.UnitPrice Rs.</p>
+                        <p class="card-text">@product.Status</p>
+                        <a type="submit" asp-action="GetProduct" asp-route-id="@product.PId" class="btn btn-info">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+}

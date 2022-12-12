@@ -1,0 +1,86 @@
+﻿@model Online_Shopping_WebAPPClient.Models.Product
+
+@*@{
+    ViewData["Title"] = "AddProduct";
+}*@
+
+<h1>AddProduct</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="PId" class="control-label"></label>
+            <input asp-for="PId" class="form-control" />
+            <span asp-validation-for="PId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PName" class="control-label"></label>
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitsInStock" class="control-label"></label>
+                <input asp-for="UnitsInStock" class="form-control" />
+                <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Status" class="control-label"></label>
+            <input asp-for="Status" class="form-control" />
+            <span asp-validation-for="Status" class="text-danger"></span>
+            </div>*@
+            <br />
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Status</option>
+                    <option value="1">Available</option>
+                    <option value="2">Unavailable</option>
+                </select>
+            </div>
+            <br />
+            @*<div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Category</option>
+                    <option value="1">cloths</option>
+                    <option value="2">electronics</option>
+                </select>
+            </div>*@
+
+            <div>
+                <div class="col-md-10">
+                    @*@Html.DropDownListFor(model => model.Category.CategoryId, ViewBag.Category as SelectList, "Select Category", new { @class = "form-control" })*@
+                    @Html.DropDownListFor(model => model.Category.CategoryId, (IEnumerable<SelectListItem>)TempData["Category"] as SelectList, "Select Category", new { @class = "form-control" })
+                    @*@Html.DropDownList("country","Select country")*@
+                    @*@Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Add Product" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+

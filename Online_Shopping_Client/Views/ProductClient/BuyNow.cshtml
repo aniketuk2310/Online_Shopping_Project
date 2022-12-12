@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "BuyNow";
+}
+
+@*<h1>BuyNow</h1>*@
+
+<form class="form-control" asp-action="BuyNow" method="post">
+    <div>
+        <div>
+            <label class="form-label">Add Quantity
+            <input class="form-control" type="number" name="Quantity" />
+        </div>
+        <hr />
+        <h4>Select Your Payment Method</h4>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="upi" name="PaymentMethod" value="UPI Payment" />
+            <label class="form-check-label">
+                UPI Payment
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="credit" name="PaymentMethod" value="Credit Card" />
+            <label class="form-check-label">
+                Credit Card
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="debit" name="PaymentMethod" value="Debit Card" />
+            <label class="form-check-label">
+                Debit Card
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="net" name="PaymentMethod" value="Net Banking" />
+            <label class="form-check-label">
+                Net Banking
+        </div><br />
+        <div class="@*text-center *@col-md-4 mb-3">
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Make Payment">
+        </div>
+    </div>
+</form>
+ 

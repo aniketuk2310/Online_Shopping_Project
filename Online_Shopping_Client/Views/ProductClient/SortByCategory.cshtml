@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "SortByCategory";
+}
+
+@*<h1>SortByCategory</h1>*@
+
+@*<form asp-action="SortByCategory" class="form-outline mb-4">
+    <div>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Category</option>
+            <option value="cloths">cloths</option>
+            <option value="electronics">electronics</option>
+        </select>
+    </div>
+    </div><br />
+    <div class="text-center col-md-4 mb-3">
+        <input type="submit" asp-route-id="d" class="btn btn-primary btn-block mb-4">Sort</input>
+    </div>
+</form>*@
+
+<form asp-action="SortByCategory" method="post">
+    @*<label>
+        Select Category
+    </label>*@
+    @*<input type="number" value="id" name="id" class="form-control"/><br />*@
+    <select class="form-select" value="id" name="cat" style="width:300px">
+        <option selected> Select Category</option>
+        <option value="1">cloths</option>
+        <option value="2">electronics</option>
+    </select>
+    <br />
+    <input type="submit" value="Get Product" name="ProductId" class="btn btn-primary">
+
+</form>
+@*
+<form asp-action="GetProduct" method="post">
+    <label>
+        Product ID
+    </label>
+    <input type="number" value="id" name="id" class="form-control" /><br />
+
+    <input type="submit" value="Get Product" name="ProductId" class="btn btn-primary">
+
+</form>*@

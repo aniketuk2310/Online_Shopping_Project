@@ -1,0 +1,54 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "ProductDetails";
+}
+
+
+
+@*<h1>GetProductDetails</h1>*@
+
+@*<form asp-action="GetProduct" method="post">
+    <label>
+        Product ID
+    </label>
+    <input type="number" value="id" name="id" class="form-control" /><br />
+
+    <input type="submit" value="Get Product" name="ProductId" class="btn btn-primary">
+
+</form>*@
+<br />
+<h3>@ViewBag.Message</h3>
+
+
+@if (Model != null)
+{
+    <div class="card text-center">
+        <div class="card-header">
+            Product Details
+        </div>
+        <div class="card-body">
+            <img class="card-img-top" src="~/images/@Model.Image" alt="Card image cap" style="height:400px;width:400px">
+            <h5 class="card-title">Product : @Model.PName</h5>
+            <p class="card-text">Price : @Model.UnitPrice Rs.</p>
+            <p class="card-text"><strong>@Model.Status</strong></p>
+            <p class="card-text">Product Description : @Model.Description</p>
+
+            @*@if (TempData["alert"] != null)
+        {
+        <a type="submit" asp-action="AddToCart" asp-route-id="@Model.PId" asp-route-uname=@TempData["greet"] class="btn btn-primary">Added</a>
+        }
+        else
+        {
+        <a type="submit" asp-action="AddToCart" asp-route-id="@Model.PId" class="btn btn-primary">Add to Cart</a>
+        }*@
+            @if (ViewBag.role == "customer")
+            {
+                <a type="submit" asp-action="AddToCart" asp-route-id="@Model.PId" class="btn btn-primary">Add to Cart</a>
+                <a type="submit" asp-action="BuyNow" asp-route-id="@Model.PId" class="btn btn-success">Buy Now</a>
+            }
+        </div>
+        <div class="card-footer text-muted">
+            <h4 id="alert">@TempData["alert"]</h4>
+        </div>
+    </div>
+}
